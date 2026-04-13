@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import streamlit as st
 import pandas as pd
 import joblib
@@ -7,8 +9,10 @@ st.set_page_config(layout="wide")
 
 st.title("Dashboard - Flux Camions Port")
 
-model = joblib.load("model.pkl")
-df = pd.read_csv("data.csv")
+BASE_DIR = Path(__file__).resolve().parent
+
+model = joblib.load(BASE_DIR / "model.pkl")
+df = pd.read_csv(BASE_DIR / "data.csv")
 
 # Rename métier
 df.rename(columns={
