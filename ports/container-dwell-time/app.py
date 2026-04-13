@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import streamlit as st
 import pandas as pd
 import joblib
@@ -7,9 +9,12 @@ st.set_page_config(layout="wide")
 st.title("Prédiction du temps de séjour des conteneurs")
 
 # Charger modèle + features
-model = joblib.load("model.pkl")
-features = joblib.load("features.pkl")
-df = pd.read_csv("data.csv")
+
+BASE_DIR = Path(__file__).resolve().parent
+
+model = joblib.load(BASE_DIR / "model.pkl")
+features = joblib.load(BASE_DIR / "features.pkl")
+df = pd.read_csv(BASE_DIR / "data.csv")
 
 # ================================
 # INPUT UTILISATEUR (SIMPLIFIÉ)
