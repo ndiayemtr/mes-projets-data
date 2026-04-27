@@ -97,6 +97,10 @@ streamlit run app.py
 container_dwell_time/
 ```
 
+##  Démo
+
+[Lien vers l'application Streamlit] *https://mes-projets-data-pwxrfg3wlan5d2zjbxsa9r.streamlit.app/*
+
 ---
 
 ## Contact

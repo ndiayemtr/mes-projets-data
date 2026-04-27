@@ -166,7 +166,12 @@ truck_flow/
 ├── requirements.txt
 ├── screenshots/
 └── README.md
+
 ```
+
+##  Démo
+
+[Lien vers l'application Streamlit] *https://mes-projets-data-decaxys8igehqj6dovgh7b.streamlit.app/*
 
 ---
 

@@ -125,6 +125,10 @@ crane_anomaly/
 
 ---
 
+##  Démo
+
+[Lien vers l'application Streamlit] *https://mes-projets-data-gjqxboxlxlgiaa7z3abacf.streamlit.app/*
+
 ## Contact
 
 N’hésite pas à me contacter pour échanger sur ce projet ou des opportunités.

@@ -110,9 +110,9 @@ qualite_de_service/
 
 ---
 
-## 🚀 Démo
+##  Démo
 
-👉 [Lien vers l'application Streamlit] *(à ajouter)*
+[Lien vers l'application Streamlit] *https://mes-projets-data-2epw2lfkj4k4x8jyb4mbzn.streamlit.app/*
 
 ---
 

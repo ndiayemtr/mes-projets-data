@@ -29,6 +29,10 @@ Contrairement à une simple application de Machine Learning, ce dashboard permet
 - Accuracy : 63%
 - Objectif : maximiser la détection des clients à risque
 
+##  Démo
+
+[Lien vers l'application Streamlit] *https://mes-projets-data-hssprkydt3y2knysspi99q.streamlit.app/*
+
 ---
 
 ## Dashboard (:contentReference[oaicite:0]{index=0})
