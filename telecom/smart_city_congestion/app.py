@@ -1,9 +1,30 @@
 from pathlib import Path
+import requests
 import streamlit as st
 import pandas as pd
 import time
-import numpy as np
-from utils import predict_congestion
+
+def call_api(input_data):
+    try:
+        response = requests.post(
+            "http://127.0.0.1:8000/predict",
+            json=input_data,
+            timeout=2
+        )
+        response.raise_for_status()
+
+        result = response.json()
+
+        return result["probabilities"], result["prediction"]
+
+    except requests.exceptions.Timeout:
+        st.error("Timeout API")
+    except requests.exceptions.ConnectionError:
+        st.error("API non disponible")
+    except Exception as e:
+        st.error(f"Erreur: {e}")
+
+    return None, None
 
 st.set_page_config(layout="wide")
 
@@ -103,7 +124,12 @@ if start:
             "brt_pressure": row["brt_pressure"]
         }
 
-        proba, pred = predict_congestion(input_data, threshold_high=0.5)
+        # proba, pred = predict_congestion(input_data, threshold_high=0.5)
+
+        proba, pred = call_api(input_data)
+
+        if proba is None:
+            continue
 
         # affichage données live
         placeholder.dataframe(pd.DataFrame([row]))
@@ -113,8 +139,8 @@ if start:
             alert_box.error(f"""
             🚨 ALERTE CONGESTION ÉLEVÉE
             
-            Zone : {row['zone']}
-            Probabilité : {round(proba[2]*100,2)} %
+            Zone : {row['zone_label']}
+            Probabilité : {round(proba['high']*100,2)} %
             """)
         elif pred == 1:
             alert_box.warning("Congestion modérée détectée")
@@ -149,13 +175,18 @@ if st.sidebar.button("Predict Congestion"):
         "brt_pressure": brt
     }
 
-    proba, pred = predict_congestion(input_data, threshold)
+    # proba, pred = predict_congestion(input_data, threshold)
+
+    proba, pred = call_api(input_data)
+
+    if proba is None:
+        st.stop()
 
     st.subheader("🔮 Résultat")
 
     col1, col2 = st.columns(2)
 
-    col1.metric("Probabilité High", f"{round(proba[2]*100,2)} %")
+    col1.metric("Probabilité High", f"{round(proba['high']*100,2)} %")
 
     if pred == 2:
         col2.error("🚨 Forte congestion")

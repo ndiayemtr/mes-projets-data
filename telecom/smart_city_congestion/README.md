@@ -20,4 +20,4 @@ Anticiper les situations de congestion critique pour améliorer la gestion du tr
 🚀 Résultat
 Modèle capable de détecter efficacement les situations critiques avec un bon compromis précision / recall.
 
-🔗 Demo : [ton lien streamlit]
+🔗 Demo : https://mes-projets-data-a92xpuluudryorytrnjpk9.streamlit.app/
