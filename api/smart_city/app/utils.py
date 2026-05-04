@@ -29,4 +29,4 @@ def predict_congestion(data, threshold_high=0.5):
             "medium": float(proba[1]),
             "high": float(proba[2])
         }
-    }
+    }   
