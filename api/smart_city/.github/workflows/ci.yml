@@ -1,4 +1,4 @@
-name: CI Smart City Project
+name: CI Smart City Projects
 
 on:
   push:
