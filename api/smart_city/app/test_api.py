@@ -14,7 +14,7 @@ def test_prediction():
         "peak_traffic": 1,
         "weather_impact": 0.5,
         "event_impact": 0.4,
-        "brt_pressure": 0.6
+        "brt_pressure": 0.6 
     }
 
     response = client.post("/predict", json=payload)
