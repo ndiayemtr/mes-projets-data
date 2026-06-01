@@ -10,6 +10,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    # Indique à GitHub de chercher par défaut dans votre sous-dossier d'API
+    defaults:
+      run:
+        working-directory: api/smart_city
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
