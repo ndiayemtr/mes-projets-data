@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from schemas import TrafficInput
-from utils import predict_congestion
+from app.schemas import TrafficInput
+from app.utils import predict_congestion
 
 app = FastAPI(
     title="Smart City Congestion API",
