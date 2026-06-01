@@ -5,10 +5,11 @@ import pandas as pd
 BASE_DIR = Path(__file__).resolve().parent
 
 model = joblib.load(BASE_DIR / "model.pkl")
+features = joblib.load(BASE_DIR / "features.pkl")
 
 def prepare_input(data):
     df = pd.DataFrame([data])
-    return df
+    return df.reindex(columns=features, fill_value=0)
 
 def predict_congestion(data, threshold_high=0.5):
     df = prepare_input(data)
